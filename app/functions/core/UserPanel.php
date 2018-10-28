@@ -15,7 +15,7 @@ class UserPanel extends User{
 		if(!empty($this->getQueryResults())){
 			return $this->getQueryResults()->usersData_name;
 		}else{
-			return session_destroy();
+			session_destroy();
 		}			
 	}
 
@@ -23,7 +23,7 @@ class UserPanel extends User{
 		if(!empty($this->getQueryResults())){
 			return $this->getQueryResults()->usersData_balance;
 		}else{
-			return session_destroy();
+			session_destroy();
 		}	
 	}
 
