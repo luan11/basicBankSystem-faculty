@@ -27,7 +27,7 @@ class UserLogin extends User{
 		switch ($this->getLoginStatus()){
 			case 'pass_true':
 				session_start();
-				$_SESSION['ses_accN'] = $this->getAccountNum();
+				$_SESSION['ses_accN'] = $this->getQueryResults()->usersData_id;
 				header('Location: ../app/panel.php');
 			break;
 

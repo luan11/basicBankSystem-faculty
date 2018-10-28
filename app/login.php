@@ -24,13 +24,16 @@
 				<form class="form-ib" action="" method="POST" id="form-ib-login" name="form-ib-login">
 					<p>
 						<span class="fas fa-file-invoice-dollar"></span>
-						<input type="text" id="form-ib-login-account" name="form-ib-login-account" placeholder="Número da Conta" maxlength="7" <?php if(isset($_GET['account'])){ echo "value='".$_GET['account']."'"; } ?> required>
+						<input type="text" id="form-ib-login-account" name="form-ib-login-account" placeholder="Número da Conta" maxlength="7" <?php if(isset($_GET['account'])){ echo "value='".substr($_GET['account'],0,7)."'"; } ?> required>
 					</p>
 					<p>
 						<span class="fas fa-key"></span>
 						<input type="password" id="form-ib-login-pass" name="form-ib-login-pass" placeholder="Senha" maxlength="8" required>
 					</p>
 					<button class="btn btn-success" type="submit" id="form-ib-login-submit" name="form-ib-login-submit">Entrar</button>
+					<?php if(!isset($_GET['act']) || $_GET['act'] == 'login'){ ?>
+					<a href="register.php">Não possui uma conta?, Clique aqui e crie a sua.</a>
+					<?php } ?>
 				</form>			
     		</div>
         </section>

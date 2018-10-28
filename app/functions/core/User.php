@@ -28,7 +28,7 @@ abstract class User {
 				break;
 
 				case 'login':
-					$searchUser = $conn->prepare("SELECT usersData_account, usersData_pw FROM ib_usersdata WHERE usersData_account LIKE :usersData_account");
+					$searchUser = $conn->prepare("SELECT usersData_id, usersData_account, usersData_pw FROM ib_usersdata WHERE usersData_account LIKE :usersData_account");
 					$searchUser->bindParam(':usersData_account', $uAcc);
 
 					$uAcc = $params['accNum'];
@@ -38,21 +38,21 @@ abstract class User {
 				break;
 
 				case 'panel_data':
-					$searchPanelData = $conn->prepare("SELECT usersData_name, usersData_balance FROM ib_usersdata WHERE usersData_account LIKE :usersData_account");
-					$searchPanelData->bindParam(':usersData_account', $uAcc);
+					$searchPanelData = $conn->prepare("SELECT usersData_name, usersData_balance FROM ib_usersdata WHERE usersData_id LIKE :usersData_id");
+					$searchPanelData->bindParam(':usersData_id', $uId);
 
-					$uAcc = $params['accNum'];
+					$uId = $params['accId'];
 					$searchPanelData->execute();
 
 					$this->queryResults = $searchPanelData->fetch(PDO::FETCH_OBJ);
 				break;
 
 				case 'panel_transactions':
-					$updBalance = $conn->prepare("UPDATE ib_usersdata SET usersData_balance = :usersData_balance WHERE usersData_account LIKE :usersData_account");
-					$updBalance->bindParam(':usersData_account', $uAcc);
+					$updBalance = $conn->prepare("UPDATE ib_usersdata SET usersData_balance = :usersData_balance WHERE usersData_id LIKE :usersData_id");
+					$updBalance->bindParam(':usersData_id', $uId);
 					$updBalance->bindParam(':usersData_balance', $uBalance);
 
-					$uAcc = $params['accNum'];
+					$uId = $params['accId'];
 					$uBalance = $params['balance'];
 					$updBalance->execute();
 				break;

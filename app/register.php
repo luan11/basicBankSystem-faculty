@@ -30,6 +30,7 @@
 						<input type="password" id="form-ib-register-pass" name="form-ib-register-pass" placeholder="Senha" maxlength="8" required>
 					</p>
 					<button class="btn btn-success" type="submit" id="form-ib-register-submit" name="form-ib-register-submit">Registrar</button>
+					<a href="panel.php">Já possui uma conta?, Clique aqui e acesse nosso painel.</a>
 				</form>			
     		</div>
         </section>

@@ -8,14 +8,14 @@ class UserPanel extends User{
 
 	function __construct($acc){
 		$this->setAccountNum($acc);
-		$this->databaseAct('panel_data', array( 'accNum' => $this->getAccountNum() ));
+		$this->databaseAct('panel_data', array( 'accId' => $this->getAccountNum() ));
 	}
 
 	public function getName_user(){
 		if(!empty($this->getQueryResults())){
 			return $this->getQueryResults()->usersData_name;
 		}else{
-			return 'null';
+			return session_destroy();
 		}			
 	}
 
@@ -23,20 +23,20 @@ class UserPanel extends User{
 		if(!empty($this->getQueryResults())){
 			return $this->getQueryResults()->usersData_balance;
 		}else{
-			return 'null';
+			return session_destroy();
 		}	
 	}
 
 	public function setDeposit($balanceVal, $depositVal){
 		$newBalanceVal = $balanceVal + $depositVal;
-		$this->databaseAct('panel_transactions', array( 'accNum' => $this->getAccountNum(), 'balance' => $newBalanceVal ));
+		$this->databaseAct('panel_transactions', array( 'accId' => $this->getAccountNum(), 'balance' => $newBalanceVal ));
 		header('Location: ../app/panel.php');
 	}
 
 	public function setWithdraw($balanceVal, $withdrawVal){
 		if($withdrawVal <= $balanceVal){			
 			$newBalanceVal = $balanceVal - $withdrawVal;
-			$this->databaseAct('panel_transactions', array( 'accNum' => $this->getAccountNum(), 'balance' => $newBalanceVal ));
+			$this->databaseAct('panel_transactions', array( 'accId' => $this->getAccountNum(), 'balance' => $newBalanceVal ));
 			header('Location: ../app/panel.php');
 		}else{
 			header('Location: ../app/panel.php?act=transactErr');

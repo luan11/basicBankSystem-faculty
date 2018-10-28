@@ -51,6 +51,11 @@
 	position: relative;
 }
 
+.form-ib>a{
+	text-align: center;
+	display: block;
+}
+
 .form-ib>p{
 	width: 100%;
 	padding: 10px 15px;
