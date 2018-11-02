@@ -56,6 +56,16 @@ abstract class User {
 					$uBalance = $params['balance'];
 					$updBalance->execute();
 				break;
+
+                case 'panel_transactions_transfer':
+                    $searchUser = $conn->prepare("SELECT usersData_id, usersData_account, usersData_balance FROM ib_usersdata WHERE usersData_account LIKE :usersData_account");
+                    $searchUser->bindParam(':usersData_account', $uAcc);
+
+                    $uAcc = $params['accNum'];
+                    $searchUser->execute();
+
+                    $this->queryResults = $searchUser->fetch(PDO::FETCH_OBJ);
+                break;
 			}
 
 			$this->createStatus = true;		

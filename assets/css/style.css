@@ -1,8 +1,61 @@
+body{
+	background-color: #fafafa;
+	transition: all .2s ease;
+}
+
 .principal{
 	position: relative;
 	background-color: #fafafa;
 	width: 100%;
-	padding: 140px 50px;
+	padding: 120px 50px;
+	transition: all .2s ease;
+}
+
+body.dark-mode,
+.principal.dark-mode{
+	background-color: #5A5A5A;
+}
+
+.color-mode{
+	display: block;
+	text-align: center;
+	padding: 10px 6px;
+	margin: auto;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	background-color: #2A2A2A;
+	width: 140px;
+	height: 40px;
+	border-radius: 10px;
+	transition: all .2s linear;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, .2);
+	font-style: italic;
+	position: fixed;
+	right: 15px;
+	top: 10px;
+}
+
+.color-mode>span{
+	padding-right: 5px;
+}
+
+.color-mode.color-default{
+	background-color: #8F8F8F;
+	color: #FFFFFF;
+}
+
+.color-mode:hover,
+.color-mode:focus{
+	text-decoration: none;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.color-mode.color-default:hover,
+.color-mode.color-default:focus{
+	text-decoration: none;
+	background-color: #BABABA;
+	color: #FFFFFF;
 }
 
 .data-fields-section{
@@ -13,6 +66,11 @@
 	padding: 20px;
 	border-radius: 15px;
 	box-shadow: 3px 4px 6px rgba(0, 0, 0, .4);
+	transition: all .2s ease;
+}
+
+.data-fields-section.dark-mode{
+	background-color: #2C2C2C;
 }
 
 .data-fields-title{
@@ -77,6 +135,18 @@
 	left: 30px;
 }
 
+.form-ib>p>.icon-deposit{
+	background-color: #13880D;
+}
+
+.form-ib>p>.icon-withdraw{
+	background-color: #C02323;
+}
+
+.form-ib>p>.icon-transfer{
+	background-color: #E7A527;
+}
+
 .form-ib>p>input{
 	width: 90%;
 	padding: 6px 30px;
@@ -86,6 +156,75 @@
 	margin: 0 auto;
 	display: block;
 	color: #118263;
+	transition: all .2s ease;
+}
+
+.form-ib>p>input.dark-mode,
+.form-ib>p>input[readonly="true"].dark-mode{
+	background-color: #2A2A2A;
+}
+
+.form-ib>p>.inpt-deposit{
+	color: #13880D;
+	border-color: #13880D;
+}
+
+.form-ib>p>.inpt-deposit::-webkit-input-placeholder{
+	color: #6BA068;
+}
+
+.form-ib>p>.inpt-deposit:-ms-input-placeholder{
+	color: #6BA068;
+}
+
+.form-ib>p>.inpt-deposit::-ms-input-placeholder{
+	color: #6BA068;
+}
+
+.form-ib>p>.inpt-deposit::placeholder{
+	color: #6BA068;
+}
+
+.form-ib>p>.inpt-withdraw{
+	color: #C02323;
+	border-color: #C02323;
+}
+
+.form-ib>p>.inpt-withdraw::-webkit-input-placeholder{
+	color: #AA7373;
+}
+
+.form-ib>p>.inpt-withdraw:-ms-input-placeholder{
+	color: #AA7373;
+}
+
+.form-ib>p>.inpt-withdraw::-ms-input-placeholder{
+	color: #AA7373;
+}
+
+.form-ib>p>.inpt-withdraw::placeholder{
+	color: #AA7373;
+}
+
+.form-ib>p>.inpt-transfer{
+	color: #E7A527;
+	border-color: #E7A527;
+}
+
+.form-ib>p>.inpt-transfer::-webkit-input-placeholder{
+	color: #E8C789;
+}
+
+.form-ib>p>.inpt-transfer:-ms-input-placeholder{
+	color: #E8C789;
+}
+
+.form-ib>p>.inpt-transfer::-ms-input-placeholder{
+	color: #E8C789;
+}
+
+.form-ib>p>.inpt-transfer::placeholder{
+	color: #E8C789;
 }
 
 .form-ib>p>input::-webkit-input-placeholder{

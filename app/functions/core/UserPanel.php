@@ -42,4 +42,24 @@ class UserPanel extends User{
 			header('Location: ../app/panel.php?act=transactErr');
 		}
 	}
+
+	public function setTransfer($balanceVal, $transferVal, $accToTransfer){
+		if($transferVal <= $balanceVal){
+			$this->databaseAct('panel_transactions_transfer', array( 'accNum' => $accToTransfer ));
+			
+			if($this->getQueryResults()->usersData_id == $this->getAccountNum()){
+				header('Location: ../app/panel.php?act=identityErr');
+			}else{
+				$newTransferredVal = $this->getQueryResults()->usersData_balance + $transferVal;
+				$this->databaseAct('panel_transactions', array( 'accId' => $this->getQueryResults()->usersData_id, 'balance' => $newTransferredVal ));
+
+				$newBalanceVal = $balanceVal - $transferVal;
+				$this->databaseAct('panel_transactions', array( 'accId' => $this->getAccountNum(), 'balance' => $newBalanceVal ));
+
+				header('Location: ../app/panel.php');
+			}
+		}else{
+			header('Location: ../app/panel.php?act=transactErr');
+		}
+	}
 }

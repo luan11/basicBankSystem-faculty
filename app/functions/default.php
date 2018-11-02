@@ -117,9 +117,16 @@ function the_panel(){
 		}
 
 		if(isset($_POST['form-ib-withdraw-submit']) && isset($_POST['form-ib-withdraw-value'])){
-			$ret_val = floatval(filter_var(sanitize_money($_POST['form-ib-withdraw-value']), FILTER_SANITIZE_STRING));
+			$wd_val = floatval(filter_var(sanitize_money($_POST['form-ib-withdraw-value']), FILTER_SANITIZE_STRING));
 
-			$userPanel->setWithdraw(sanitize_money($userPanel_balance), $ret_val);
+			$userPanel->setWithdraw(sanitize_money($userPanel_balance), $wd_val);
+		}
+
+		if(isset($_POST['form-ib-transfer-submit']) && isset($_POST['form-ib-transfer-value']) && isset($_POST['form-ib-transfer-acc'])){
+			$tr_acc = filter_var($_POST['form-ib-transfer-acc'], FILTER_SANITIZE_STRING);
+			$tr_val = floatval(filter_var(sanitize_money($_POST['form-ib-transfer-value']), FILTER_SANITIZE_STRING));
+
+			$userPanel->setTransfer(sanitize_money($userPanel_balance), $tr_val, $tr_acc);
 		}
 	}
 

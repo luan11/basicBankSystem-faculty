@@ -10,3 +10,5 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+	<main class="principal">
+		<a class="color-mode" href="javascript:void(0);"><span class="fas fa-palette"></span> Dark mode</a>
