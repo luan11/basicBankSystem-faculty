@@ -128,6 +128,10 @@ function the_panel(){
 
 			$userPanel->setTransfer(sanitize_money($userPanel_balance), $tr_val, $tr_acc);
 		}
+
+		if(isset($_GET['act']) && $_GET['act'] == 'accOut'){
+			$userPanel->closeAccount();
+		}
 	}
 
 }

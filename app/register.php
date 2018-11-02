@@ -4,7 +4,7 @@
     	<?php
     	if(isset($_GET['act'])){
     		if($_GET['act'] == 'error'){
-				echo "<p class='error-create'><span class='fas fa-times-circle'></span>Erro ao tentar abrir sua conta, tente novamente!</p>";
+				echo "<p class='alerts error-create'><span class='fas fa-times-circle'></span>Erro ao tentar abrir sua conta, tente novamente!</p>";
 			}
     	}
     	?>    	

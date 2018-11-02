@@ -48,7 +48,7 @@ abstract class User {
 				break;
 
 				case 'panel_transactions':
-					$updBalance = $conn->prepare("UPDATE ib_usersdata SET usersData_balance = :usersData_balance WHERE usersData_id LIKE :usersData_id");
+					$updBalance = $conn->prepare("UPDATE ib_usersdata SET usersData_balance = :usersData_balance WHERE usersData_id = :usersData_id");
 					$updBalance->bindParam(':usersData_id', $uId);
 					$updBalance->bindParam(':usersData_balance', $uBalance);
 
@@ -57,7 +57,7 @@ abstract class User {
 					$updBalance->execute();
 				break;
 
-                case 'panel_transactions_transfer':
+                case 'panel_data_transfer':
                     $searchUser = $conn->prepare("SELECT usersData_id, usersData_account, usersData_balance FROM ib_usersdata WHERE usersData_account LIKE :usersData_account");
                     $searchUser->bindParam(':usersData_account', $uAcc);
 
@@ -65,6 +65,14 @@ abstract class User {
                     $searchUser->execute();
 
                     $this->queryResults = $searchUser->fetch(PDO::FETCH_OBJ);
+                break;
+
+                case 'panel_acc_delete':
+                    $searchUser = $conn->prepare("DELETE FROM ib_usersdata WHERE usersData_id = :usersData_id");
+                    $searchUser->bindParam(':usersData_id', $uId);
+
+                    $uId = $params['accId'];
+                    $searchUser->execute();
                 break;
 			}
 

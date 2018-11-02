@@ -4,10 +4,19 @@
         <?php
     	if(isset($_GET['act'])){
     		if($_GET['act'] == 'transactErr'){
-				echo "<p class='error-create'><span class='fas fa-times-circle'></span>Saldo insuficiente para esta retirada...</p>";
+				echo "<p class='alerts error-create'><span class='fas fa-exclamation-circle'></span>Saldo insuficiente para esta retirada...</p>";
 			}
 			if($_GET['act'] == 'identityErr'){
-				echo "<p class='error-create'><span class='fas fa-times-circle'></span>Impossível fazer uma transferência para você mesmo...</p>";
+				echo "<p class='alerts error-create'><span class='fas fa-user-alt-slash'></span>Impossível realizar uma transferência para própia conta...</p>";
+			}
+			if($_GET['act'] == 'notfoundErr'){
+				echo "<p class='alerts error-create'><span class='fas fa-user-times'></span>Conta inexistente, tente transferir para uma conta válida.</p>";
+			}
+			if($_GET['act'] == 'transactSuccess'){
+				echo "<p class='alerts success-create'><span class='fas fa-file-export'></span>Operação efetuada com sucesso!</p>";
+			}
+			if($_GET['act'] == 'outAccErr'){
+				echo "<p class='alerts error-create'><span class='fas fa-info-circle'></span>Retire ou Transfira todo seu saldo antes de encerrar sua conta.</p>";
 			}
     	}
     	?>        	
@@ -20,7 +29,7 @@
 			<form class="form-ib" action="" method="POST" id="form-ib-deposit" name="form-ib-deposit">
 				<p>
 					<span class="icon-deposit fas fa-dollar-sign"></span>
-					<input class="inpt-deposit" type="text" id="form-ib-deposit-value" name="form-ib-deposit-value" placeholder="1500,50" required>
+					<input class="inpt-deposit" type="text" id="form-ib-deposit-value" name="form-ib-deposit-value" placeholder="Valor a ser depositado" required>
 				</p>
 				<button class="btn btn-success" type="submit" id="form-ib-deposit-submit" name="form-ib-deposit-submit"><span class="fas fa-sort-amount-up"></span> Depósito</button>
 			</form>			
@@ -30,7 +39,7 @@
 			<form class="form-ib" action="" method="POST" id="form-ib-withdraw" name="form-ib-withdraw">
 				<p>
 					<span class="icon-withdraw fas fa-dollar-sign"></span>
-					<input class="inpt-withdraw" type="text" id="form-ib-withdraw-value" name="form-ib-withdraw-value" placeholder="285,75" required>
+					<input class="inpt-withdraw" type="text" id="form-ib-withdraw-value" name="form-ib-withdraw-value" placeholder="Valor a ser retirado" required>
 				</p>
 				<button class="btn btn-danger" type="submit" id="form-ib-withdraw-submit" name="form-ib-withdraw-submit"><span class="fas fa-sort-amount-down"></span> Retirada</button>
 			</form>			
@@ -50,6 +59,9 @@
             </form>         
         </div>
         <hr>
-		<a href="?act=logout" class="btn btn-info"><span class="fas fa-door-open"></span> Sair do Painel</a>
+		<div class="panel-out-opts">
+			<a href="?act=logout" class="btn btn-primary"><span class="fas fa-door-open"></span> Sair do Painel</a>
+			<a href="?act=accOut" class="btn btn-danger"><span class="fas fa-user-times"></span> Encerrar conta</a>
+		</div>
     </section>
 <?php include 'footer.php'; ?>

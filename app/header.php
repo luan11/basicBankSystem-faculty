@@ -11,4 +11,4 @@
 </head>
 <body>
 	<main class="principal">
-		<a class="color-mode" href="javascript:void(0);"><span class="fas fa-palette"></span> Dark mode</a>
+		<a class="color-mode" href="javascript:void(0);"><span class="fas fa-tint"></span> Dark mode</a>
