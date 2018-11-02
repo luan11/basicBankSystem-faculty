@@ -4,7 +4,7 @@
         <?php
     	if(isset($_GET['act'])){
     		if($_GET['act'] == 'transactErr'){
-				echo "<p class='alerts error-create'><span class='fas fa-exclamation-circle'></span>Saldo insuficiente para esta retirada...</p>";
+				echo "<p class='alerts error-create'><span class='fas fa-exclamation-circle'></span>Saldo insuficiente para finalizar esta operação...</p>";
 			}
 			if($_GET['act'] == 'identityErr'){
 				echo "<p class='alerts error-create'><span class='fas fa-user-alt-slash'></span>Impossível realizar uma transferência para própia conta...</p>";
