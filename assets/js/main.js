@@ -7,22 +7,34 @@ var bgInputs = document.querySelectorAll("input");
 var bgBody = document.querySelectorAll("body");
 var defaultModeSet = true;
 var alerts = document.querySelectorAll(".alerts");
+var alertsTimerBar = document.querySelectorAll(".alerts-bar");
 
 function removeAlerts(){
+	var counter = 75;
+	var timer = setInterval(function(){
+
+		for(var i = 0; i < alerts.length; i++){
+			alertsTimerBar[i].style.width = counter+"%";
+		}
+		counter--;
+
+		if(timer === 0){
+			clearInterval(timer);
+		}
+
+	}, 100);
+
 	setTimeout(function(){
 		for(var i = 0; i < alerts.length; i++){
 			alerts[i].classList.add('outerror');
 		}
-	},10000);
+	},8000);
 }
 removeAlerts();
 
 function setDefaultStyleCookie(cvalue){
-    document.cookie = "style="+cvalue;
-}
-
-function deleteDefaultStyleCookie(){
-	document.cookie = "style=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	var expiresDate = new Date(2020, 11, 31).toUTCString();
+    document.cookie = "style="+cvalue+"; expires="+expiresDate+"; path=/;";
 }
 
 function getCookie(cname){
@@ -71,15 +83,12 @@ btn_colorMode[0].addEventListener("click",function(){
 	}
 
 	if(defaultModeSet){
-		deleteDefaultStyleCookie();
 		setDefaultStyleCookie("darkMode");
 		btn_colorMode[0].innerHTML = '<span class="fas fa-tint-slash"></span> Light mode';
 		return defaultModeSet = false;
 	}else{
-		deleteDefaultStyleCookie();
 		setDefaultStyleCookie("default");
 		btn_colorMode[0].innerHTML = '<span class="fas fa-tint"></span> Dark mode';
 		return defaultModeSet = true;
 	}
 });
-

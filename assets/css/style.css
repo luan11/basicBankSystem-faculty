@@ -268,15 +268,39 @@ body.dark-mode,
     padding: 12px 0;
     border-radius: 15px;
     width: 80%;
-    margin: 0 auto 10px;
+    margin: 10px auto 0;
     position: relative;
     transition: all .2s ease;
+}
+
+.alerts-bar{
+    padding: 4px 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 80%;
+    margin: 0 auto 5px;
+    position: relative;
+    transition: all .2s linear;
+}
+
+.alerts-bar.success-create{
+	background-color: #277327;
+}
+
+.alerts-bar.error-create{
+	background-color: #732727;
+}
+
+.alerts-bar.access-open{
+	background-color: #3364B4;
 }
 
 .success-create.outerror, .error-create.outerror, .access-open.outerror{
 	opacity: 0;
 	transform: scale(1, 0);
 	height: 0;
+	padding: 0;
+	margin: 0 auto;
 }
 
 .success-create>span, .error-create>span, .access-open>span{

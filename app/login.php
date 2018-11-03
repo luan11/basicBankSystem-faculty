@@ -5,19 +5,25 @@
     		if(isset($_GET['act'])){
     			if($_GET['act'] == 'success'){
 	    			echo "<p class='alerts success-create'><span class='fas fa-user-check'></span>Conta aberta com sucesso!</p>";
+	    			echo "<p class='alerts-bar success-create'></p>";
 	    			echo "<p class='alerts access-open'><span class='fas fa-info-circle'></span>Acesse sua conta...</p>";
+	    			echo "<p class='alerts-bar access-open'></p>";
     			}
     			if($_GET['act'] == 'u_err'){
 	    			echo "<p class='alerts error-create'><span class='fas fa-times-circle'></span>Ooops, Conta ou Senha estão incorretos.</p>";
+	    			echo "<p class='alerts-bar error-create'></p>";
     			}
     			if($_GET['act'] == 'logout'){
 	    			echo "<p class='alerts access-open'><span class='fas fa-info-circle'></span>Logout feito com sucesso!</p>";
+	    			echo "<p class='alerts-bar access-open'></p>";
     			}
     			if($_GET['act'] == 'login'){
 	    			echo "<p class='alerts access-open'><span class='fas fa-info-circle'></span>Faça seu login para ter acesso ao painel!</p>";
+	    			echo "<p class='alerts-bar access-open'></p>";
     			}
     			if($_GET['act'] == 'accLockedUp'){
 	    			echo "<p class='alerts access-open'><span class='fas fa-ban'></span>Conta encerrada com sucesso!</p>";
+	    			echo "<p class='alerts-bar access-open'></p>";
     			}
     		}
     	?>

@@ -5,18 +5,23 @@
     	if(isset($_GET['act'])){
     		if($_GET['act'] == 'transactErr'){
 				echo "<p class='alerts error-create'><span class='fas fa-exclamation-circle'></span>Saldo insuficiente para finalizar esta operação...</p>";
+				echo "<p class='alerts-bar error-create'></p>";
 			}
 			if($_GET['act'] == 'identityErr'){
 				echo "<p class='alerts error-create'><span class='fas fa-user-alt-slash'></span>Impossível realizar uma transferência para a própia conta...</p>";
+				echo "<p class='alerts-bar error-create'></p>";
 			}
 			if($_GET['act'] == 'notfoundErr'){
 				echo "<p class='alerts error-create'><span class='fas fa-user-times'></span>Conta inexistente, tente transferir para uma conta válida.</p>";
+				echo "<p class='alerts-bar error-create'></p>";
 			}
 			if($_GET['act'] == 'transactSuccess'){
 				echo "<p class='alerts success-create'><span class='fas fa-file-export'></span>Operação efetuada com sucesso!</p>";
+				echo "<p class='alerts-bar success-create'></p>";
 			}
 			if($_GET['act'] == 'outAccErr'){
 				echo "<p class='alerts error-create'><span class='fas fa-info-circle'></span>Retire ou Transfira todo seu saldo antes de encerrar sua conta.</p>";
+				echo "<p class='alerts-bar error-create'></p>";
 			}
     	}
     	?>        	
